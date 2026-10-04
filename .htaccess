@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+
+    RewriteEngine On
+    RewriteBase /ziscare
+
+    # Jika file atau folder benar-benar ada,
+    # jangan diarahkan ke index.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # Semua request diarahkan ke CodeIgniter
+    RewriteRule ^(.*)$ index.php/$1 [L]
+
+</IfModule>
